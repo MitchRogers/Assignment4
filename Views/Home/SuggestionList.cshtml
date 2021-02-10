@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+}
+
+<!-- IEnumerable allows you to loop through the list of suggestions -->
+@model IEnumerable<Assignment4.Models.Suggestion>
+<style>
+    th, td {
+        padding: 10px;
+        margin: 0 120px 0 120px;
+    }
+</style>
+<div>
+    <h1>Here are the suggestions submitted by you!</h1>
+    <!-- Create a table to display all the user suggestions -->
+    <table class="table-striped table-hover">
+        <thead>
+            <tr class="text-danger">
+                <th>Name</th>
+                <th>Restaurant</th>
+                <th>Favorite Dish</th>
+                <th>Restaurant Phone</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- razor code to input the list of suggestions -->
+            @foreach (Assignment4.Models.Suggestion sug in Model)
+            {
+                @if (sug.FavoriteItem == null)
+                {
+                    sug.FavoriteItem = "It's all tasty!";
+                }
+                <tr>
+                    <td>@sug.userName</td>
+                    <td>@sug.restaurantName</td>
+                    <td>@sug.FavoriteItem</td>
+                    <td>@sug.restaurantPhone</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
