@@ -50,11 +50,13 @@ namespace Assignment4.Controllers
         [HttpPost]
         public IActionResult Suggestions(Suggestion suggestion)
         {
-            //Debug.WriteLine("Name: " + suggestion.userName);
+            if (ModelState.IsValid)
+            {
+                TempStorage.AddSuggestion(suggestion);
+                return View(suggestion);
+            }
 
-            TempStorage.AddSuggestion(suggestion);
-
-            return View(suggestion);
+            return View();
         }
 
         public IActionResult SuggestionList()

@@ -20,7 +20,7 @@
     <input asp-for="FavoriteItem" class="alert-danger" />
     <br />
     <label asp-for="restaurantPhone">Restaurant's phone number: </label>
-    <input asp-for="restaurantPhone" class="alert-danger" placeholder="XXX-XXX-XXXX"/>
+    <input asp-for="restaurantPhone" class="alert-danger" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="XXX-XXX-XXXX"/>
     <br /><br />
     <button type="submit" class="btn-danger">Submit your suggestion</button>
 </form>

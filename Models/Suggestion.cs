@@ -11,7 +11,8 @@ namespace Assignment4.Models
         public string userName { get; set; }
         public string restaurantName { get; set; }
         public string FavoriteItem { get; set; }
-        [Phone]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-]?([0-9]{3})[-]?([0-9]{4})$")]
         public string restaurantPhone { get; set; }
     }
 }
